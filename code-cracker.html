@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+
+  function generateCode() {
+    return Array.from({ length: 5 }, () => Math.floor(Math.random() * 10) + 1);
+  }
+
+  function crackTheCode(code) {
+    const [first, second, third, fourth, fifth] = code;
+    const sum = code.reduce(function (a, b) { return a + b; }, 0);
+
+    if (
+      fifth + third === 14
+      &&
+      fourth === second + 1
+      &&
+      first + 1 === second * 2
+      &&
+      second + third === 10
+      &&
+      sum === 30
+    ) {
+      console.log('THIS IS THE CODE:', code);
+    } else {
+      crackTheCode(generateCode());
+    }
+  }
+
+  crackTheCode(generateCode());
+
+</script>
+</head>
+</html>
